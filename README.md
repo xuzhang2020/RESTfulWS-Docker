@@ -29,7 +29,7 @@ In this sample project, I use the front and back end seperation technology. At b
    
 4. Service layer.
    Interfaces `CustomerService` and `OrderService` are designed to supply customer and order query operations.
-   Classes `CustomerServiceImpl` and `OrderServiceImpl` implement interfaces `CustomerService` and `OrderService`. Annotation `@Service` is used on these service classes, so SpringBoot could create beans for our application, and annotation `@Autowired` could be used to access methods of these service. Such as , I use 
+   Classes `CustomerServiceImpl` and `OrderServiceImpl` implement interfaces `CustomerService` and `OrderService`. Annotation `@Service`    is used on these service classes, so SpringBoot could create beans for our application, and annotation `@Autowired` could be used to    access methods of these service. Such as , I use 
 ```
    @Autowired
    JsonService jsonService;
@@ -43,13 +43,13 @@ In this sample project, I use the front and back end seperation technology. At b
    `CustomerController` supply RESTful web service that contain four GET routes:
    One that displays a collection of customers by using `/customers`.
    
-   One that displays a single customer by using '/customers/{id}'. And annotation `@PathVariable` is used to get the value of id parameter.
+   One that displays a single customer by using '/customers/{id}'. And annotation `@PathVariable` is used to get the value of id        parameter.
    
    One that displays a collection of a specific customer's orders by using `/customers/{id}/orders`.
    
    One that displays a single order of a specific customer by using `/customers/{id}/orders/{orderId}`.
    
-   `IndexController` supply an web page `index.html` that displays results of four GET routes. In the web page `index.html`, I use ajax techonology to request four GET routes supplied by `CustomerController`, and process the json data returned from the web service routes.
+   `IndexController` supply an web page `index.html` that displays results of four GET routes. In the web page `index.html`, I use ajax  techonology to request four GET routes supplied by `CustomerController`, and process the json data returned from the web service routes.
    See package `com.zx.restfulws.controller` for more details.
    
 ### About Docker
