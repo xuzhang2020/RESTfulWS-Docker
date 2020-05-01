@@ -86,7 +86,7 @@ In this sample project, I use the front and back end seperation technology. At b
    Execute the system command terminal, use `cd` command to reach the folder contains jar file and dockfile.
    Execute the dock command belows:
    
-   `docker build -t restfulws:1.0`
+   `docker build --t restfulws:1.0`
    
 4. Run Docker Image
 
@@ -98,7 +98,7 @@ In this sample project, I use the front and back end seperation technology. At b
 
    The index web page displays four buttons for the four RESTful GET routes, and we can also input request path and path variable in the brower navigation bar, such as:
    
-   `http://localhost:9091/customers/`
+   `http://localhost:9091/customers`
    
    `http://localhost:9091/customers/35`
    
