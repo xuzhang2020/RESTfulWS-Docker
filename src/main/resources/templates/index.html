@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<style type="text/css">
+table,td,th {border:1px solid black;}
+
+div
+{
+	width: 100%;
+}
+table
+{
+	border-collapse:collapse;
+	width: 100%;
+}
+td
+{
+	text-align:center;
+	height:50px;
+}
+</style>
+    <meta charset="UTF-8" />
+    <title>index</title>
+	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script >
+	//all customer
+	
+	
+	$(document).ready(function(){
+	  $('#btnAllCustomers').click(function(){
+		  var port=$('#port').text();
+		  var url="http://localhost:" + port + "/customer/";
+		  
+	    $.get(url,function(data,status){
+	      //alert(data.data);
+	      var str = JSON.stringify(data);
+	      //alert(str);
+	      var result = $.parseJSON(str);
+          
+	      //alert(result);
+	      var userList = result.data; //result.data;
+	      //alert(userList);
+          var tabStr = "All Customers belows:<br/><table >";
+          tabStr += "<tr><th>Customer Id"
+          + "</th><th>First Name"
+          + "</th><th>Last Name"
+          + "</th><th>Street"
+          + "</th><th>zip"
+          + "</th><th>Area Code"
+          + "</th><th>Phone Number"
+          + "</th></tr>";
+          
+          $.each(userList, function (i, user) {
+        	  //alert("user:" + user.id);
+        	  //alert("user:" + user.name);
+              tabStr += "<tr><td>" + user.id
+                      + "</td><td>" + user.firstName
+                      + "</td><td>" + user.lastName
+                      + "</td><td>" + user.street
+                      + "</td><td>" + user.zip
+                      + "</td><td>" + user.areacode
+                      + "</td><td>" + user.phoneNumber
+                      + "</td></tr>";
+          });
+          tabStr += "</table>";
+          $('#display').html(tabStr);
+	    });
+	  });
+	  
+	  
+	  //one customer
+	  $('#btnOneCustomer').click(function(){
+		  var port=$('#port').text();
+		  var url="http://localhost:" + port + "/customer/";
+		  //var cusId=$('#customers').attr("value");
+		  var cusId=$('#cusId1').val();
+		  
+		  if(cusId==null||cusId==undefined||cusId==""){
+			  alert("Input a CustomerId Please!")
+			  return;
+		  }
+			  
+		  url += cusId;
+		  //alert(url);
+	    $.get(url,function(data,status){
+	      //alert(data.data);
+	      var str = JSON.stringify(data);
+	      //alert(str);
+	      var result = $.parseJSON(str);
+          
+	      //alert(result);
+	      var user = result.data; //result.data;
+	      //alert(userList);
+          var tabStr = "The Customer belows:<br/>";
+          tabStr += "<b>Customer Id:</b> " + user.id + "  <b>First Name:</b> " + user.firstName
+          			+ "  <b>Last Name:</b> " + user.lastName
+          			+ "  <b>Street:</b> " + user.street
+          			+ "  <b>zip:</b> " + user.zip
+          			+ "  <b>Area Code:</b> " + user.areacode
+          			+ "  <b>Phone Number:</b> " + user.phoneNumber;
+          $('#display').html(tabStr);
+	    });
+	  });
+	  
+	  
+	  //orders
+	  $('#btnOneCustomerOrders').click(function(){
+		  var port=$('#port').text();
+		  var cusId=$('#cusId2').val();
+		  
+		  if(cusId==null||cusId==undefined||cusId==""){
+			  alert("Input a CustomerId Please!")
+			  return;
+		  }
+		  var url="http://localhost:" + port + "/customer/";
+		  url += cusId;
+		  url += "/orders";
+		  //alert(url);
+	    $.get(url,function(data,status){
+	      //alert(data.data);
+	      var str = JSON.stringify(data);
+	      //alert(str);
+	      var result = $.parseJSON(str);
+          
+	      //alert(result);
+	      var orderList = result.data; //result.data;
+	      //alert(userList);
+          var tabStr = "All Orders belows:<br/>";
+         
+          
+          $.each(orderList, function (i, order) {
+        	  tabStr+="<div><table>";
+              tabStr += "<tr><th>Order Id"
+                  + "</th><th>Order Code"
+                  + "</th><th>Order Time"
+                  + "</th></tr>";
+        	  //alert("user:" + user.id);
+        	  //alert("user:" + user.name);
+              tabStr += "<tr><td>" + order.id
+                      + "</td><td>" + order.code
+                      + "</td><td>" + order.date
+                      + "</td></tr>";
+              tabStr += "</table></div>";
+              
+              var orderItems = order.orderItems;
+              
+              tabStr+="<div><table>";
+              
+              tabStr += "<tr><th>OrderItem Id"
+                  + "</th><th>Item Name"
+                  + "</th><th>Item Code"
+                  + "</th><th>Price"
+                  + "</th><th>Quantity"
+                  + "</th></tr>";
+                  
+              $.each(orderItems, function (j, orderItem) {
+            	  //alert("user:" + user.id);
+            	  //alert("user:" + user.name);
+                  tabStr += "<tr><td>" + orderItem.id
+                          + "</td><td>" + orderItem.itemName
+                          + "</td><td>" + orderItem.itemCode
+                          + "</td><td>" + orderItem.price
+                          + "</td><td>" + orderItem.quantity
+                          + "</td></tr>";
+              });
+              
+              tabStr += "</table></div>";
+              
+          });
+          
+          $('#display').html(tabStr);
+	    });
+	  });
+	  
+	  
+	  $('#btnOneCustomerOrder').click(function(){
+		  var port=$('#port').text();
+		  var cusId=$('#cusId3').val();
+		  
+		  if(cusId==null||cusId==undefined||cusId==""){
+			  alert("Input a CustomerId Please!")
+			  return;
+		  }
+		  var orderId=$('#orderId').val();
+		  
+		  if(orderId==null||orderId==undefined||orderId==""){
+			  alert("Input a OrderId Please!")
+			  return;
+		  }
+		  var url="http://localhost:" + port + "/customer/";
+		  url += cusId;
+		  url += "/orders/";
+		  url += orderId;
+		  //alert(url);
+	    $.get(url,function(data,status){
+	      //alert(data.data);
+	      var str = JSON.stringify(data);
+	      //alert(str);
+	      var result = $.parseJSON(str);
+          
+	      //alert(result);
+	      var order = result.data; //result.data;
+	      //alert(orderList);
+          var tabStr = "All Orders belows:<br/>";
+          //$.each(orderList, function (i, order) {
+        	  //alert(tabStr);
+        	  tabStr+="<div><table>";
+              tabStr += "<tr><th>Order Id"
+                  + "</th><th>Order Code"
+                  + "</th><th>Order Time"
+                  + "</th></tr>";
+        	  //alert("user:" + user.id);
+        	  //alert("user:" + user.name);
+              tabStr += "<tr><td>" + order.id
+                      + "</td><td>" + order.code
+                      + "</td><td>" + order.date
+                      + "</td></tr>";
+              tabStr += "</table></div>";
+              //alert(tabStr);
+              var orderItems = order.orderItems;
+              
+              tabStr+="<div><table>";
+              
+              tabStr += "<tr><th>OrderItem Id"
+                  + "</th><th>Item Name"
+                  + "</th><th>Item Code"
+                  + "</th><th>Price"
+                  + "</th><th>Quantity"
+                  + "</th></tr>";
+                  
+              $.each(orderItems, function (j, orderItem) {
+            	  //alert("user:" + user.id);
+            	  //alert("user:" + user.name);
+                  tabStr += "<tr><td>" + orderItem.id
+                          + "</td><td>" + orderItem.itemName
+                          + "</td><td>" + orderItem.itemCode
+                          + "</td><td>" + orderItem.price
+                          + "</td><td>" + orderItem.quantity
+                          + "</td></tr>";
+              });
+              //alert(tabStr);
+              tabStr += "</table></div>";
+              
+          //});
+          //alert(tabStr);
+          $('#display').html(tabStr);
+	    });
+	  });
+	  
+	});
+	</script>
+</head>
+<body>
+
+    <h1 th:text="${helloword}">Hello World</h1>
+    <h1 id="port" hidden="hidden" th:text="${port}">Hello World</h1>
+    <h3><i>Operation Panel</i></h3>
+    <div>
+	    <table>
+	    	<tr>
+	    		<th>GET Routing Sample</th>
+	    		<th>Routing Description</th>
+	    		<th>Parameters</th>
+	    		<th>Operation Button</th></tr>
+	    	<tr>
+	    		<td>/customers</td>
+	    		<td>This route path displays a customer collection.</td>
+	    		<td></td>
+	    		<td><button id="btnAllCustomers">All Customer</button></td>
+	    	</tr>
+	    	<tr>
+	    		<td>/customers/{id}</td>
+	    		<td>This route path displays a single customer.</td>
+	    		<td>Input a Customer Id:<input id="cusId1" type="text" name="cusId1"/></td>
+	    		<td><button id="btnOneCustomer">One Customer</button></td>
+	    	</tr>
+	    	<tr>
+	    		<td>/customers/{id}/orders</td>
+	    		<td>This route path displays a order collection of a single customer.</td>
+	    		<td>Input a Customer Id:<input id="cusId2" type="text" name="cusId2"/></td>
+	    		<td><button id="btnOneCustomerOrders">Orders of a Customer</button></td>
+	    	</tr>
+	    	<tr>
+	    		<td>/customers/{id}/orders/{orderId}</td>
+	    		<td>This route path displays a single order of a single customer.</td>
+	    		<td>Input a Customer Id:<input id="cusId3" type="text" name="cusId3"/><br/>Input a Order Id:<input id="orderId" type="text" name="orderId"/></td>
+	    		<td><button id="btnOneCustomerOrder">One Order of a Customer</button></td></tr>
+	    </table>
+    </div>
+    
+    <h3><i>Display Panel</i></h3>
+    <div id="display"></div>
+</body>
+</html>

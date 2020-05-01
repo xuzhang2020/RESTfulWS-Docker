@@ -1,0 +1,262 @@
+{
+    "customers":[
+        {
+            "id":1,
+            "firstName":"James",
+            "lastName":"Koch",
+            "street":"Washington",
+            "zip":"07310",
+            "areacode":"100",
+            "phoneNumber":"5776699"
+        },
+        {
+            "id":2,
+            "firstName":"Jack",
+            "lastName":"DuPont",
+            "street":"Washington",
+            "zip":"07310",
+            "areacode":"100",
+            "phoneNumber":"5776612"
+        },
+        {
+            "id":3,
+            "firstName":"Eric",
+            "lastName":"Walton",
+            "street":"Pleasantville",
+            "zip":"10101",
+            "areacode":"101",
+            "phoneNumber":"5774544"
+        },
+        {
+            "id":4,
+            "firstName":"Brady",
+            "lastName":"Marshall",
+            "street":"Pleasantville",
+            "zip":"10102",
+            "areacode":"102",
+            "phoneNumber":"5774511"
+        },
+        {
+            "id":5,
+            "firstName":"Benjamin",
+            "lastName":"Bezos",
+            "street":"New York",
+            "zip":"20202",
+            "areacode":"201",
+            "phoneNumber":"6774544"
+        },
+        {
+            "id":35,
+            "firstName":"Angel",
+            "lastName":"Gates",
+            "street":"Atlanta",
+            "zip":"80101",
+            "areacode":"801",
+            "phoneNumber":"8774544"
+        }
+    ],
+    "orders":[
+        {
+            "id":1,
+            "code":"O0000001",
+            "cusId":1,
+            "date":"2020-4-1 13:00:00"
+        },
+        {
+            "id":2,
+            "code":"O0000002",
+            "cusId":1,
+            "date":"2020-4-2 13:00:00"
+        },
+        {
+            "id":3,
+            "code":"O0000003",
+            "cusId":2,
+            "date":"2020-4-3 13:00:00"
+        },
+        {
+            "id":4,
+            "code":"O0000004",
+            "cusId":2,
+            "date":"2020-4-4 13:00:00"
+        },
+        {
+            "id":5,
+            "code":"O0000005",
+            "cusId":3,
+            "date":"2020-4-5 13:00:00"
+        },
+        {
+            "id":6,
+            "code":"O0000006",
+            "cusId":3,
+            "date":"2020-4-6 13:00:00"
+        },
+        {
+            "id":7,
+            "code":"O0000007",
+            "cusId":4,
+            "date":"2020-4-7 13:00:00"
+        },
+        {
+            "id":8,
+            "code":"O0000008",
+            "cusId":4,
+            "date":"2020-4-8 13:00:00"
+        },
+        {
+            "id":9,
+            "code":"O0000009",
+            "cusId":5,
+            "date":"2020-4-9 13:00:00"
+        },
+        {
+            "id":10,
+            "code":"O0000010",
+            "cusId":5,
+            "date":"2020-4-10 13:00:00"
+        },
+        {
+            "id":11,
+            "code":"O0000011",
+            "cusId":35,
+            "date":"2020-4-10 13:00:00"
+        },
+        {
+            "id":13,
+            "code":"O0000013",
+            "cusId":35,
+            "date":"2020-4-10 13:00:00"
+        }
+    ],
+    "orderItems":[
+        {
+            "id":1,
+            "orderId":1,
+            "itemName":"Water",
+            "itemCode":"I0000001",
+            "price":10,
+            "quantity":1
+        },
+		{
+            "id":2,
+            "orderId":2,
+            "itemName":"Toothpaste",
+            "itemCode":"I0000002",
+            "price":10,
+            "quantity":1
+        },
+		{
+            "id":3,
+            "orderId":3,
+            "itemName":"Rice",
+            "itemCode":"I0000003",
+            "price":10,
+            "quantity":1
+        },
+		{
+            "id":4,
+            "orderId":4,
+            "itemName":"Snow Peas",
+            "itemCode":"I0000004",
+            "price":10,
+            "quantity":1
+        },
+		{
+            "id":5,
+            "orderId":5,
+            "itemName":"Yellow Bell Pepper",
+            "itemCode":"I0000005",
+            "price":10,
+            "quantity":1
+        },
+		{
+            "id":6,
+            "orderId":6,
+            "itemName":"DANDY Bi - Color Corn",
+            "itemCode":"I0000006",
+            "price":10,
+            "quantity":1
+        },
+		{
+            "id":7,
+            "orderId":7,
+            "itemName":"Streusel Cake",
+            "itemCode":"I0000007",
+            "price":10,
+            "quantity":1
+        },
+		{
+            "id":8,
+            "orderId":8,
+            "itemName":"Blueberry Organic",
+            "itemCode":"I0000008",
+            "price":10,
+            "quantity":1
+        },
+		{
+            "id":9,
+            "orderId":9,
+            "itemName":"Lime Regular Conventional",
+            "itemCode":"I0000009",
+            "price":10,
+            "quantity":1
+        },
+		{
+            "id":10,
+            "orderId":10,
+            "itemName":"Simply Orange Juice",
+            "itemCode":"I0000010",
+            "price":10,
+            "quantity":1
+        },
+		{
+            "id":11,
+            "orderId":11,
+            "itemName":"Blueberry Organic",
+            "itemCode":"I0000008",
+            "price":10,
+            "quantity":1
+        },
+		{
+            "id":12,
+            "orderId":11,
+            "itemName":"Lime Regular Conventional",
+            "itemCode":"I0000009",
+            "price":10,
+            "quantity":1
+        },
+		{
+            "id":13,
+            "orderId":11,
+            "itemName":"Simply Orange Juice",
+            "itemCode":"I0000010",
+            "price":10,
+            "quantity":1
+        },
+		{
+            "id":14,
+            "orderId":13,
+            "itemName":"Blueberry Organic",
+            "itemCode":"I0000008",
+            "price":10,
+            "quantity":1
+        },
+		{
+            "id":15,
+            "orderId":13,
+            "itemName":"Lime Regular Conventional",
+            "itemCode":"I0000009",
+            "price":10,
+            "quantity":1
+        },
+		{
+            "id":16,
+            "orderId":13,
+            "itemName":"Simply Orange Juice",
+            "itemCode":"I0000010",
+            "price":10,
+            "quantity":1
+        }
+    ]
+}
