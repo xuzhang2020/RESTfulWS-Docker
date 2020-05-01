@@ -41,9 +41,12 @@ In this sample project, I use the front and back end seperation technology. At b
 5. Controll layer.
    Two controllers are created in this project, `IndexController`  and `CustomerController`. 
    `CustomerController` supply RESTful web service that contain four GET routes:
-   One that displays a collection of customers by using `/customers`
+   One that displays a collection of customers by using `/customers`.
+   
    One that displays a single customer by using '/customers/{id}'. And annotation `@PathVariable` is used to get the value of id parameter.
+   
    One that displays a collection of a specific customer's orders by using `/customers/{id}/orders`.
+   
    One that displays a single order of a specific customer by using `/customers/{id}/orders/{orderId}`.
    
    `IndexController` supply an web page `index.html` that displays results of four GET routes. In the web page `index.html`, I use ajax techonology to request four GET routes supplied by `CustomerController`, and process the json data returned from the web service routes.
