@@ -86,13 +86,15 @@ In this sample project, I use the front and back end seperation technology. At b
    Execute the system command terminal, use `cd` command to reach the folder contains jar file and dockfile.
    Execute the dock command belows:
    
-   `docker build --t restfulws:1.0`
+   `docker build --tag restfulws:1.0 .` 
+   
+    Be careful the last character `.`
    
 4. Run Docker Image
 
    Execute the dock command belows:
    
-   `docker run -p 9091:8080 -t restfulws:1.0`
+   `docker run -d -p 9091:8080 restfulws:1.0`
 
 5. After docker image is running, input `http://localhost:9091/index` in the browser navigation bar.
 
