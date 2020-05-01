@@ -1,11 +1,44 @@
 
-## First Single Page Application - ReactJS
+## RESTful Web Service & Docker
 
 
-### About making the project
+### About RESTful Web Service
 
 
-This project is react single web page application.In the project, I used React, Sass, Node.js and Gulp.<br />
+In this sample project, I use the front and back end seperation technology. At back end I use SpringBoot freamework, the JSON file based database, and supply RESTful web service for the front requests. At the front end, I use html and ajax technology. The function of RESTful web service is to query the customers and orders collection, and a single customer or a single order.
+
+1. Create SpringBoot project.
+   Create a simple start SpringBoot project from the web page `https://start.spring.io/`.
+   Download the project after completing the required attributes, such as project type ( I choose `Maven Project`), Language ( I choose `Java`), project metadata Group Id、 Artifact Id etc.
+   
+2. Using maven/pom.xml to manage dependencies.   
+   In this project, `spring-boot-starter` `spring-boot-starter-test` `spring-boot-starter-web` `spring-boot-starter-thymeleaf` `org.json` are needed.
+   You can find more dependencies and the correct way of reference on the web site `https://mvnrepository.com/`.
+   
+3. Data layer
+   I choose using the json file based database. So I use json file `db.json` to store the datas of customers, orders and order items.
+   Read and convert json file data to java object. 
+```
+   import com.fasterxml.jackson.databind.ObjectMapper;
+   ...
+   ObjectMapper objectMapper = new ObjectMapper();
+   jsonData = objectMapper.readValue(content.toString(),JsonData.class);
+```
+   See `JsonService.java` to get more details.
+   
+4. Service layer.
+5. Controll layer.
+6. json response
+6. Html&Ajax.
+`
+### About Docker
+
+1. Installation
+2. Dockerfile
+3. Build jar 
+4. Deploy to docker
+
+<br />
 
 React routing technology is used to achieve the page routing of the home page and blog details page.
 ```
