@@ -52,7 +52,7 @@ In this sample project, I use the front and back end seperation technology. At b
    `IndexController` supply an web page `index.html` that displays results of four GET routes. In the web page `index.html`, I use ajax  techonology to request four GET routes supplied by `CustomerController`, and process the json data returned from the web service routes.
    See package `com.zx.restfulws.controller` for more details.
    
-### About Docker
+### About Docker & How to install and run this application
 
 1. Installation
 
